@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+  <main>
+    <div class="container">
+      <div class="row mainmargin text-center">
+        <form action="{% url 'app:create-post' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <h1 style="text-align: center;">New Post Form</h1>
+
+          <div class="mb-3">
+            <label for="">Post Title</label>
+            <input class="form-control" id="emailAddress" name="title" type="text" />
+          </div>
+          <div class="mb-3">
+            <label for="">Post Image</label>
+            <input class="form-control" id="emailAddress" name="image" type="file" />
+          </div>
+          <div class="mb-3">
+            <label for="">Post text</label>
+            <textarea class="form-control" id="emailAddress" name="description" rows="10"> </textarea>
+          </div>
+          <div class="d-grid">
+            <button class="main-button mt-0 disabled" id="submitButton" type="submit">Save Post</button>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </main>
+{% endblock content%}
